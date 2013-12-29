@@ -2,10 +2,17 @@
 
 ## Getting Started
 
-Build and run the image:
+Get the image via index.docker.io
 
-        $ IMAGE_NAME=networld/docker-rabbitmq
-        $ docker build -t ${IMAGE_NAME} .
+        $ docker pull networld/rabbitmq
+
+        or build from source
+
+        $ IMAGE_NAME=networld/rabbitmq
+        $ docker build -rm -t ${IMAGE_NAME} .
+
+Start a container with:
+
         $ docker run -name rabbitmq -p 127.0.0.1:5672:5672 -p 127.0.0.1:15672:15672 -d $IMAGE_NAME
         # Only admin web interface on host
         $ docker run -name rabbitmq -p 127.0.0.1:15672:15672 -d $IMAGE_NAME
