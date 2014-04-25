@@ -28,10 +28,6 @@ RUN wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc -O /tmp/rabbitm
 RUN apt-key add /tmp/rabbitmq-signing-key-public.asc
 RUN apt-get -y update
 
-# Docker work around for upstart: [https://github.com/dotcloud/docker/issues/1024]
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
-
 RUN apt-get install -y rabbitmq-server
 RUN rabbitmq-plugins enable rabbitmq_management
 
