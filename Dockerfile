@@ -22,6 +22,7 @@ MAINTAINER Alex Oberhauser <alex.oberhauser@networld.to>
 ENV DEBIAN_FRONTEND noninteractive
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+RUN apt-get -y update
 RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list
 RUN apt-get install -y wget
 RUN wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc -O /tmp/rabbitmq-signing-key-public.asc
